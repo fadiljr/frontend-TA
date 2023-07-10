@@ -105,29 +105,29 @@ const SimpleTable = () => {
   const list_rfq = async () => {
     try {
       //rest
-      // let response = await fetch('http://localhost:3001/api/rfq');
-      // let response_details = await fetch('http://localhost:3001/api/rfq/details');
+      let response = await fetch('http://localhost:3001/api/rfq');
+      let response_details = await fetch('http://localhost:3001/api/rfq/details');
       //graphql
-      let responses = await fetch('http://127.0.0.1:8000/graphql', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          query,
-        }),
-      });
+      // let responses = await fetch('http://127.0.0.1:8000/graphql', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     Accept: 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     query,
+      //   }),
+      // });
       //rest
-      // const rfq = await response.json();
-      // const rfq_details = await response_details.json();
-      // console.log(rfq.data);
-      // console.log(rfq_details);
-      // setRfqs(rfq.data);
+      const rfq = await response.json();
+      const rfq_details = await response_details.json();
+      console.log(rfq.data);
+      console.log(rfq_details);
+      setRfqs(rfq.data);
       // //graphql
-      const rfqs = await responses.json();
-      console.log(rfqs.data.rfqs);
-      setRfqs(rfqs.data.rfqs);
+      // const rfqs = await responses.json();
+      // console.log(rfqs.data.rfqs);
+      // setRfqs(rfqs.data.rfqs);
     } catch (e) {
       console.log(e.message);
     }
